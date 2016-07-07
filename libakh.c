@@ -18,7 +18,7 @@ int dateplusdays(int date, int plusdays)
 	}
 
 begin:
-	if (plusflag)
+	if (plusflag == TRUE)
 		d += plusdays;
 
 	if (y % 4 == 0 && !(y % 100 == 0 && y % 400 != 0))
@@ -30,6 +30,17 @@ begin:
 		if (m > 12) {
 			m = 1;
 			y++;
+			plusflag = FALSE;
+			goto begin;
+		}
+	}
+
+	while(d < 1) {
+		d = days[leap][m - 1] + d;
+		m--;
+		if (m < 1) {
+			m = 12;
+			y--;
 			plusflag = FALSE;
 			goto begin;
 		}
