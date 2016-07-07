@@ -1,4 +1,4 @@
-#include "akh.h"
+#include "libakh.h"
 #define TRUE	1
 #define FALSE	0
 
